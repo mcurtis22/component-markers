@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DemoMapModule } from './demo-map/demo-map.module';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 
 import { AppComponent } from './app.component';
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+		DemoMapModule,
+		LeafletModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

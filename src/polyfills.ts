@@ -77,3 +77,8 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+import 'leaflet/dist/leaflet.css';
+import 'rxjs';
+import '@asymmetrik/ngx-leaflet';
+import 'leaflet';

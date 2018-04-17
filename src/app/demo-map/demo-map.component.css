@@ -1,0 +1,11 @@
+section {
+	margin: auto;
+	height: 800px;
+	width: 800px;
+	background-color: pink;
+}
+
+.leaflet-map {
+	height: inherit;
+	width: inherit;
+}
