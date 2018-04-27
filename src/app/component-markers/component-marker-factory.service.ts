@@ -8,32 +8,30 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ComponentMarkerFactoryService {
-  public markersToBeCompiled: TypedMarker[] = [];
+	public markersToBeCompiled: TypedMarker[] = [];
 
-  private _vcRef: ViewContainerRef;
+	private _vcRef: ViewContainerRef;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+	constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
-  public set vcRef(vcr: ViewContainerRef) {
-    this._vcRef = vcr;
-  }
+	public set vcRef(vcr: ViewContainerRef) {
+		this._vcRef = vcr;
+	}
 
-  public get vcRef(): ViewContainerRef {
-    return this._vcRef;
-  }
+	public get vcRef(): ViewContainerRef {
+		return this._vcRef;
+	}
 
 	public compileMarker(marker: TypedMarker): Observable<ComponentRef<ComponentMarkerComponent>> {
 		const observable = Observable.create( (obs: Observer<any>) => {
 
-		  if (!this._vcRef) {
-		    obs.error('Target ViewContainerRef needs to be defined before compiling.');
-		    return;
-      }
+			if (!this._vcRef) {
+				obs.error('Target ViewContainerRef needs to be defined before compiling.');
+				return;
+			}
 
 			const componentFactory = this.componentFactoryResolver.resolveComponentFactory(marker.component);
 			let componentRef = this._vcRef.createComponent(componentFactory);
-
-			//Using EventEmitters to avoid throwing exceptions pertaining to Angular change detection
 
 			componentRef.instance.onViewInit.subscribe(( isCompiled: boolean ) => {
 				let instance = componentRef.instance as IComponentMarker;
@@ -44,7 +42,7 @@ export class ComponentMarkerFactoryService {
 				if ( isCompiled ) {
 					instance.compiled = true;
 					componentRef.changeDetectorRef.detectChanges();
-          obs.next(componentRef);
+					obs.next(componentRef);
 					obs.complete();
 				}
 			});

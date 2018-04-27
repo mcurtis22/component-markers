@@ -1,13 +1,34 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <h1>
-    Component Markers Demo
-  </h1>
-	<div class="button-container">
-		<button (click)="demoMap?.createMarker()">
-			Create Marker
-		</button>
-	</div>
-	<app-demo-map #demoMap>
-	</app-demo-map>
+	<table>
+		<thead>
+			<h1>
+				Component Markers Demo
+			</h1>
+			<div class="button-container">
+				<button (click)="demoMap?.createMarker()">
+					Create Marker
+				</button>
+			</div>
+		</thead>
+		<tbody>
+			<tr>
+				<th>Markers</th>
+				<th>Map</th>
+			</tr>
+			<tr>
+				<td class="marker-list-container">
+						<ul>
+							<li *ngFor="let marker of demoMap?.markers; ">
+								{{marker.index}} - {{marker.body}}
+							</li>
+						</ul>
+				</td>
+				<td>
+					<app-demo-map #demoMap>
+					</app-demo-map>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>

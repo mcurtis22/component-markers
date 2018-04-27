@@ -1,8 +1,7 @@
 section {
 	margin: auto;
-	height: 800px;
-	width: 800px;
-	background-color: pink;
+	height: 50rem;
+	width: 50rem;
 }
 
 .leaflet-map {

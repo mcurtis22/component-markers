@@ -1,33 +1,42 @@
 .compiled-marker {
-  background: white;
-  height: 50px;
-  width: 150px;
-  border: 1px solid lightgray;
+	background: white;
+	height: 50px;
+	width: 150px;
+	border: 1px solid lightgray;
 }
 
 .marker-anchor {
-  width: 17px;
-  height: 17px;
-  padding: 1px;
-  margin: -10px auto 0;
-  background: white;
-  transform: rotate(45deg);
-  border-right: 1.5px solid lightgray;
-  border-bottom: 1.5px solid lightgray;
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+	margin: -10px auto 0;
+	background: white;
+	transform: rotate(45deg);
+	border-right: 1.5px solid lightgray;
+	border-bottom: 1.5px solid lightgray;
 }
 
 .marker-anchor-container {
-  width: 40px;
-  height: 20px;
-  position: absolute;
-  left: 43px;
-  top: -21px;
-  pointer-events: none;
-  transform: rotate(180deg);
-  z-index: 1;
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 43px;
+	top: -21px;
+	pointer-events: none;
+	transform: rotate(180deg);
+	z-index: 1;
 }
 
 .marker-body {
-  padding-top: 12px;
-  text-align: center;
+	padding-top: 12px;
+	text-align: center;
+}
+
+.close-button-container {
+	float: right;
+	border: none;
+}
+
+.close-button-container.close-button {
+	color: red;
 }

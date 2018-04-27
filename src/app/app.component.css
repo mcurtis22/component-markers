@@ -1,3 +1,28 @@
 h1 {
 	text-align: center;
 }
+
+.button-container {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+}
+.button-container> button {
+	height: 2rem;
+	width: 8rem;
+}
+
+.marker-list-container {
+	background-color: lightgray;
+	border: 2px black solid;
+	max-height: 300px;
+	overflow-y: scroll;
+}
+
+.marker-list-container > ul {
+	list-style: none;
+}
+
+table {
+	margin: auto;
+}

@@ -9,55 +9,61 @@ templateUrl: './component-marker.component.html',
 styleUrls: ['./component-marker.component.css']
 })
 export class ComponentMarkerComponent implements IComponentMarker, AfterViewInit, DoCheck {
-  public compiled: boolean = false;
-  public expanded: boolean = false;
-  public showIndex: boolean = true;
-  public index: number;
-  public onViewInit: EventEmitter<any> = new EventEmitter();
-  public onExpand: EventEmitter<any> = new EventEmitter();
-  public onCollapse: EventEmitter<any> = new EventEmitter();
+	public compiled: boolean = false;
+	public expanded: boolean = false;
+	public showIndex: boolean = true;
+	public index: number;
+	public body: string;
+	public onViewInit: EventEmitter<any> = new EventEmitter();
+	public onExpand: EventEmitter<any> = new EventEmitter();
+	public onCollapse: EventEmitter<any> = new EventEmitter();
+	public onRemove: EventEmitter<any> = new EventEmitter();
 
 
 
-  constructor(
-    public changeDetectorRef: ChangeDetectorRef
-  ) {}
+	constructor(
+		public changeDetectorRef: ChangeDetectorRef
+	) {}
 
-  ngAfterViewInit() {
-    this.onViewInit.emit(true);
-  }
+	ngAfterViewInit() {
+		this.onViewInit.emit(true);
+	}
 
-  ngDoCheck() {
-    if (!this.compiled) {
-      this.onViewInit.emit(false);
-    }
-  }
+	ngDoCheck() {
+		if (!this.compiled) {
+			this.onViewInit.emit(false);
+		}
+	}
 
-  public onLeafletEvent(event: L.Event): void {
-    const eventType = event.type;
+	public onLeafletEvent(event: L.Event): void {
+		const eventType = event.type;
 
-    switch (eventType) {
-      case 'mouseover':
-        this.expandMarker();
-        break;
-      case 'mouseout':
-        this.collapseMarker();
-        break;
-      default:
-        break;
-    }
-  }
+		switch (eventType) {
+			case 'mouseover':
+				this.expandMarker();
+				break;
+			case 'mouseout':
+				this.collapseMarker();
+				break;
+			default:
+				break;
+		}
+	}
 
-  public expandMarker(): void {
-    this.expanded = true;
-    this.onExpand.emit();
-    this.changeDetectorRef.detectChanges();
-  }
+	public expandMarker(): void {
+		this.expanded = true;
+		this.onExpand.emit();
+		this.changeDetectorRef.detectChanges();
+	}
 
-  public collapseMarker(): void {
-    this.expanded = false;
-    this.onCollapse.emit();
-    this.changeDetectorRef.detectChanges();
-  }
+	public collapseMarker(): void {
+		this.expanded = false;
+		this.onCollapse.emit();
+		this.changeDetectorRef.detectChanges();
+	}
+
+	public removeMarker(): void {
+		this.onRemove.emit();
+	}
 
 }
