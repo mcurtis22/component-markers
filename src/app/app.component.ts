@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, IterableDiffers, ViewChild } from '@angular/core';
 import * as L from "leaflet";
 import { DemoMapComponent } from './demo-map/demo-map.component';
 @Component({
@@ -8,7 +8,7 @@ import { DemoMapComponent } from './demo-map/demo-map.component';
 })
 export class AppComponent {
   public title = 'Component Markers Demo';
-	@ViewChild('demoMap') demoMap: DemoMapComponent;
+	@ViewChild(DemoMapComponent) demoMap: DemoMapComponent;
 
 
   private readonly LEAFLET_MAP_MARKER = 'leaflet/marker-icon.png';
@@ -19,5 +19,20 @@ export class AppComponent {
       iconUrl: `${window.location.origin}/${this.LEAFLET_MAP_MARKER}`,
       shadowUrl: `${window.location.origin}/${this.LEAFLET_MAP_SHADOW}`
     });
+  }
+
+
+
+
+  handleMarkerClick() {
+
+  }
+
+  handleMarkerOut() {
+
+  }
+
+  handleMarkerOver() {
+
   }
 }

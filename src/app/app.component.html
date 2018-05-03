@@ -25,7 +25,10 @@
 						</ul>
 				</td>
 				<td>
-					<app-demo-map #demoMap>
+					<app-demo-map
+            (onMarkerMouseClick)="handleMarkerClick()"
+            (onMarkerMouseOut)="handleMarkerOut()"
+            (onMarkerMouseOver)="handleMarkerOver()">
 					</app-demo-map>
 				</td>
 			</tr>
